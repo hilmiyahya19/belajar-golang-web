@@ -1,7 +1,6 @@
 package belajar_golang_web // Nama package sesuai dengan modul atau folder project
 
 import (
-	"embed"                 // Package untuk fitur embed file/template ke dalam binary
 	"fmt"                   // Digunakan untuk output ke console
 	"html/template"         // Package untuk HTML templating yang aman (auto-escape)
 	"io"                    // Digunakan untuk membaca body response
@@ -87,9 +86,7 @@ func TestTemplateDirectory(t *testing.T) {
 	fmt.Println(string(body))
 }
 
-//go:embed templates/*.gohtml
-// Menyematkan semua file template .gohtml ke dalam binary aplikasi
-var templates embed.FS
+// go embed dan var templates telah dipindahkan ke template_caching_test.go
 
 func TemplateEmbed(writer http.ResponseWriter, request *http.Request) {
 	// Mem-parsing template langsung dari embedded filesystem
